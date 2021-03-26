@@ -27,9 +27,8 @@ public class Main {
             C.setX(in.nextDouble());
             C.setY(in.nextDouble());
             C.setZ(in.nextDouble());
-
-            /*//проверка совпадения координат
-            if (A.equalPoints(B) | A.equalPoints(C) | B.equalPoints(C))
+            //проверка совпадения координат
+            /*if (A.equalPoints(B) | A.equalPoints(C) | B.equalPoints(C))
                 System.out.println("Некоторые точки совпадают, площадь равна 0");
             else
                 System.out.println("Площадь треугольника равна " + computeArea(A, B, C));*/

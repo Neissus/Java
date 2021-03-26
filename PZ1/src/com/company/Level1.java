@@ -13,8 +13,8 @@ public class Level1 {
         double n;
         int[] array;
         int choice = -1;
+        Scanner in = new Scanner(System.in);
         while(choice != 0) {
-            Scanner in = new Scanner(System.in);
             System.out.println("Выберите какой метод использовать:");
             System.out.println("1 - найти остаток от деления числа на число");
             System.out.println("2 - найти площадь треугольника по его высоте и основанию");
