@@ -80,9 +80,6 @@ public class Level2 {
                 case (7) -> {
                     System.out.println("Введите строку:");
                     str = in.next();
-                    //если строка была введена с пробелами, то считываем следующие слова
-                    if(in.hasNext()) str = in.next();
-                    if(in.hasNext()) str = in.next();
                     System.out.println("Строка является индексом? " + isValid(str));
                     System.out.println();
                 }
@@ -106,6 +103,11 @@ public class Level2 {
                     System.out.println("Введите суффикс:");
                     str = in.next();
                     System.out.println("Суффикс в этом слове есть? " + isSuffix(string, str));
+                }
+                case (11) -> {
+                    System.out.println("Введите количество ходов:");
+                    n = in.nextInt();
+                     System.out.println("Количество полей на данном ходе " + numOfFields(n));
                 }
             }
             Thread.sleep(1000);
@@ -213,5 +215,9 @@ public class Level2 {
     public static boolean isSuffix(String str, String suf) {
         //проверяем на равенство подстроку образованную из основного слова и заданное сочетание, результать возвращаем
         return suf.equals(str.substring(str.length() - suf.length()));
+    }
+    public static int numOfFields(int n){
+        if (n % 2 == 0) return n;
+        else return n+2;
     }
 }
