@@ -19,16 +19,16 @@ public class Level4 {
         Scanner in = new Scanner(System.in);
         while(choice != 0) {
             System.out.println("Выберите какой метод использовать:");
-            System.out.println(" 1 - Работа с эссе");
-            System.out.println(" 2 - Кластер скобок");
-            System.out.println(" 3 - Camel & Snake");
-            System.out.println(" 4 - Калькулятор заработка");
-            System.out.println(" 5 - Индекс массы тела");
-            System.out.println(" 6 - Найти мультипликативное постоянство");
-            System.out.println(" 7 - Звездная стенография");
-            System.out.println(" 8 - Рифма");
-            System.out.println(" 9 - Работа с числами и их повторениями");
-            System.out.println("10 - Одинаковые символы");
+            System.out.println(" 1 - процессор Бэсси");
+            System.out.println(" 2 - кластер скобок");
+            System.out.println(" 3 - преобразовать строку");
+            System.out.println(" 4 - калькулятор выплат с переработками");
+            System.out.println(" 5 - вычислить индекс массы тела");
+            System.out.println(" 6 - найти мультипликативное постоянство");
+            System.out.println(" 7 - преобразовать в звездную стенографию");
+            System.out.println(" 8 - проверить рифмуемость");
+            System.out.println(" 9 - проверить на повторения числа");
+            System.out.println("10 - найти количество уникальных символов между повторяющимися");
             System.out.println(" 0 - Выход");
             choice = in.nextInt();
             switch (choice) {
@@ -39,12 +39,12 @@ public class Level4 {
                     System.out.println("Введите строку");
                     str=in.nextLine();
                     str = in.nextLine();
-                    System.out.println(Essay(a,b,str));
+                    System.out.println(remakeEssay(a,b,str));
                 }
                 case (2) -> {
                     System.out.println("Введите строку:");
                     str = in.next();
-                    System.out.println("Исправленная строка:"+Split(str));
+                    System.out.println("Исправленная строка:" + split(str));
                 }
                 case (3) -> {
                     System.out.println("Введите строку");
@@ -82,13 +82,13 @@ public class Level4 {
                 case (6) -> {
                     System.out.println("Введите число:");
                     n= in.nextInt();
-                    System.out.println("Мультипликативное постоянство:"+Bugger(n));
+                    System.out.println("Мультипликативное постоянство:"+bugger(n));
                 }
                 case (7) -> {
                     System.out.println("Введите строку");
                     str = in.nextLine();
                     str = in.nextLine();
-                    System.out.println("Измененная строка " + ToStarShorthand(str));
+                    System.out.println("Измененная строка " + toStarShorthand(str));
                 }
                 case (8) -> {
 
@@ -97,28 +97,28 @@ public class Level4 {
                     str = in.nextLine();
                     System.out.println("Введите вторую строку");
                     string = in.nextLine();
-                    System.out.println("Строки рифмуются? " + DoesRhyme(str,string));
+                    System.out.println("Строки рифмуются? " + doesRhyme(str,string));
                 }
                 case (9) -> {
                     System.out.println("Введите первое число ");
                     a=in.nextInt();
                     System.out.println("Введите второе число ");
                     b=in.nextInt();
-                    System.out.println(Trouble(a,b));
+                    System.out.println(trouble(a,b));
                 }
                 case (10) -> {
                     System.out.println("Введите строку");
                     str = in.next();
                     System.out.println("Введите символ-фильтр");
                     s = in.next().charAt(0);
-                    System.out.println("Количество уникальных символов: "+ CountUniqueBooks(str,s));
+                    System.out.println("Количество уникальных символов: "+ countUniqueBooks(str,s));
                 }
             }
             Thread.sleep(1000);
         }
     }
 
-    public static int CountUniqueBooks(String str,char s){
+    public static int countUniqueBooks(String str,char s){
         HashMap<Character, Integer> values = new HashMap<>();
         boolean Check = true;
         for (int i = 0; i < str.length(); i++){
@@ -143,7 +143,7 @@ public class Level4 {
     }
 
 
-    public static String  Split(String str){
+    public static String  split(String str){
         StringBuilder string= new StringBuilder("['");
         int n=0;
         for (int i=0;i<str.length();i++) {
@@ -168,7 +168,7 @@ public class Level4 {
         return string.toString();
     }
 
-    public static String Essay(int n, int k , String str){
+    public static String remakeEssay(int n, int k , String str){
         String[] string = str.split(" ");
         str="";
         StringBuilder finalist= new StringBuilder();
@@ -186,7 +186,7 @@ public class Level4 {
     }
 
 
-    public static int Bugger(int n){
+    public static int bugger(int n){
         int p;
         int x;
         int check=0;
@@ -201,7 +201,7 @@ public class Level4 {
         return check;
     }
 
-    public static boolean DoesRhyme(String str1, String str2) {
+    public static boolean doesRhyme(String str1, String str2) {
         str1 = str1.substring(str1.lastIndexOf(" ") + 1);
         str2 = str2.substring(str2.lastIndexOf(" ") + 1);
         String check = "aeiouyAEIOUY";
@@ -218,7 +218,7 @@ public class Level4 {
         return (rez1.toString().equalsIgnoreCase(rez2.toString()));
     }
 
-    public static boolean Trouble(int n1,int n2){
+    public static boolean trouble(int n1,int n2){
         int check=0;
         int count=1;
         while(n1!=0) {
@@ -247,7 +247,7 @@ public class Level4 {
         return "Normal weight";
     }
 
-    public static String ToStarShorthand(String str) {
+    public static String toStarShorthand(String str) {
         int count = 1;
         char sim = str.charAt(0);
         StringBuilder string = new StringBuilder();
