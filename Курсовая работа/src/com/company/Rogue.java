@@ -32,6 +32,7 @@ public final class Rogue {
         if (damage > armor) {
             health = health - (damage - armor);
             armor = 0;
+            if (health < 0) health = 0;
         } else
             armor -= damage;
     }
@@ -43,7 +44,7 @@ public final class Rogue {
             riseArmor(val);
             return 0;
         }
-        //иначе атакут
+        //иначе атакует
         else
             return force;
         }

@@ -19,9 +19,9 @@ public final class Hero {
     //метод, реализующий получение урона
     public void takeDamage(int damage) {
         if (damage > armor) {
-            damage -= armor;
-            health = health - damage;
+            health = health - (damage - armor);
             armor = 0;
+            if (health < 0) health = 0;
         }
         else
             armor -= damage;

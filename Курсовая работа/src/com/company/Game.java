@@ -83,6 +83,7 @@ public class Game {
                     }
                 }while (turn == 0 && rogue.getHealth() > 0);
                 //если враг повержен, то выходим из цикла
+                if (hero.getHealth() < 1) break;
                 if (rogue.getHealth() < 1) break;
                 //после перехода хода кубик бросается и враг совершает одно из действий (атаковать/увеличить броню)
                 System.out.println("Ход переходит к " + rogue.getName() + "...");
@@ -100,7 +101,7 @@ public class Game {
                 }
                 //при достаточном количестве очков, враг атакует
                 else {
-                    System.out.println("Разбойник атакует с силой " + rogue.turn(valueDice));
+                    System.out.println(rogue.getName() + " атакует с силой " + rogue.turn(valueDice));
                     hero.takeDamage(rogue.turn(valueDice));
                     Thread.sleep(1500);
                     System.out.println("Ваша броня  = " + hero.getArmor() + ", ваше здоровье = " + hero.getHealth());
@@ -114,7 +115,7 @@ public class Game {
                 }
             }
             //если игрок погиб, то выходим из цикла обнулив сложность
-            if (hero.getHealth() < 0) rogueDifficulty = 0;
+            if (hero.getHealth() < 1) rogueDifficulty = 0;
             //если игрок выжил (он победил предыдущего противника), то увеличиваем сложность
             else {
                 rogueDifficulty++;
@@ -133,7 +134,7 @@ public class Game {
             }
         }
         //если игрок, погиб, то выводим сообщение о проигрыше и предлагаем сыграть снова
-        if (hero.getHealth() < 0) System.out.println("К сожалению, вы проиграли, перезапустите игру и попробуйте еще раз...");
+        if (hero.getHealth() < 1) System.out.println("К сожалению, вы проиграли, перезапустите игру и попробуйте еще раз...");
         //если игрок выжил (он победил всех противников), то выводим сообщение о победе и заканчиваем игру
         else{
             System.out.println("Вы уничтожили банду и можете возвращаться к королю за своей наградой...");
@@ -201,10 +202,6 @@ public class Game {
             System.out.println("Криволапова А.К.");
             System.out.println("проверила ст.преподаватель");
             System.out.println("Мосева М.С.");
-
-
-
-
         }
     }
     //метод для реализации броска кубика с гранями от 0 до 5
